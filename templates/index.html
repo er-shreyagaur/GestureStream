@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Control video playback with hand gestures and voice commands using GestureStream">
+    <title>GestureStream</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Gesture_Stream_Icon.png') }}?v=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='newStyle.css') }}">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">GestureStream</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#videos">Videos</a></li>
+            <li><a href="#instructions">Instructions</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+    <!-- Main Content -->
+    <div class="container">
+        <section id="home">
+            <header>
+                <h1>Welcome to GestureStream</h1>
+                <!-- Buttons for Control System -->
+                <div class="control-system">
+                    <button id="startGestureBtn">Start Control System</button>
+                    <button id="stopGestureBtn" disabled>Stop Control System</button>
+                </div>
+
+                <!-- Status indicator -->
+                <div id="gestureStatusIndicator" class="system-status status-inactive">
+                    System Status: Inactive
+                </div>
+
+                <!-- Control Mode Selection -->
+                <div class="control-modes">
+                    <button id="gestureMode" class="mode-button active">Gesture Only</button>
+                    <button id="voiceMode" class="mode-button">Voice Only</button>
+                    <button id="bothMode" class="mode-button">Both Modes</button>
+                </div>
+            </header>
+        </section>
+        <!-- Video Section -->
+        <section id="videos">
+            <h2>Choose a Video to Play</h2>
+            <div class="video-gallery">
+                <!-- Video 1 -->
+                <div class="video-item">
+                    <h3>The Art</h3>
+                    <video id="videoPlayer1" class="video-player" controls>
+                        <source src="{{ url_for('static', filename='videos/video1.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Video 2 -->
+                <!-- <div class="video-item">
+                    <h3>Video 2</h3>
+                    <video id="videoPlayer2" class="video-player" controls>
+                        <source src="{{ url_for('static', filename='videos/video2.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div> -->
+                <!-- Video 3 -->
+                <!-- <div class="video-item">
+                    <h3>Video 3</h3>
+                    <video id="videoPlayer3" class="video-player" controls>
+                        <source src="{{ url_for('static', filename='videos/video3.mp4') }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div> -->
+            </div>
+        </section>
+        <!-- Instructions Section -->
+        <section id="instructions">
+            <h2>Control Instructions</h2>
+            <div class="instruction-tabs">
+                <button class="tab-button active" onclick="showInstructions('gesture')">Gesture Controls</button>
+                <button class="tab-button" onclick="showInstructions('voice')">Voice Commands</button>
+            </div>
+            <div id="gestureInstructions" class="instruction-content active">
+                <ul class="custom-list">
+                    <li>✊ Make fist for <strong>Play/Pause</strong></li>
+                    <li>✌️ Thumb up / Victory for <strong>Volume Up</strong></li>
+                    <li>👎 Thumb down for <strong>Volume Down</strong></li>
+                </ul>
+            </div>
+            <div id="voiceInstructions" class="instruction-content">
+                <ul class="custom-list">
+                    <li>🎤 Say "<strong>Play</strong>" or "<strong>Pause</strong>" to control playback</li>
+                    <li>🎤 Say "<strong>Volume up</strong>" or "<strong>Increase volume</strong>"</li>
+                    <li>🎤 Say "<strong>Volume down</strong>" or "<strong>Decrease volume</strong>"</li>
+                    <li>🎤 Say "<strong>Skip forward</strong>" or "<strong>Forward</strong>"</li>
+                    <li>🎤 Say "<strong>Skip backward</strong>" or "<strong>Back</strong>"</li>
+                </ul>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section id="about">
+            <h2>About GestureStream</h2>
+            <p>GestureStream is an innovative application that allows you to control video playback using hand gestures
+                and voice commands. Perfect for hands-free media control!</p>
+        </section>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>Made with ❤️ in 🇮🇳 | Powered by GestureStream | © 2024</p>
+    </footer>
+    <!-- Include our main JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
